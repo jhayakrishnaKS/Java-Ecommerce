@@ -1,0 +1,5 @@
+id	name	email	password
+1,admin,admin@admin.com,admin
+2,krish,krish@mail.com,krish
+3,a,a,a
+73,jkay,jkay@mail.com,jkay
