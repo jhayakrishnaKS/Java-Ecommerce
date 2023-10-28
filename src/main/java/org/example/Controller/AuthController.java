@@ -41,13 +41,18 @@ public class AuthController implements IAuthController {
         int choice;
         try {
             choice = enterInt(StringUtils.ENTER_CHOICE);
-            if (choice == 1) {
-                login();
-            } else if (choice == 2) {
-                register();
-            } else {
-                invalidChoice(new AppExecption(StringUtils.INVALID_CHOICE));
+            switch (choice) {
+                case 1:
+                    login();
+                    break;
+                case 2:
+                    register();
+                    break;
+                default:
+                    invalidChoice(new AppExecption(StringUtils.INVALID_CHOICE));
+                    break;
             }
+
         } catch (AppExecption appException) {
             invalidChoice(appException);
         }

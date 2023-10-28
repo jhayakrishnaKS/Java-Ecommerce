@@ -1,6 +1,7 @@
 package org.example.utils;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 public class FileUtils {
     private static File credentailsFile;
@@ -12,8 +13,9 @@ public class FileUtils {
         return credentailsFile;
     }
     public static File ProductFile(){
-        if(productFile==null){
-            productFile=new File("src/main/java/org/example/Assets/Product.csv");
-        }   return productFile;
+        if (productFile == null) {
+            productFile = new File("src/main/java/org/example/Assets/Product.csv");
+        }
+        return productFile;
     }
 }
