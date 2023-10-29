@@ -7,5 +7,6 @@ import java.util.ArrayList;
 public class ProductsPage {
     public void printProducts(ArrayList<Product> products) {
 
+
     }
 }

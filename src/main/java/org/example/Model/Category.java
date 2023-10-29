@@ -10,6 +10,9 @@ public class Category {
         this.categoryName = categoryName;
     }
 
+    public Category(String category) {
+    }
+
     public int getId() {
         return id;
     }
@@ -24,5 +27,9 @@ public class Category {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    public String getName() {
+        return null;
     }
 }

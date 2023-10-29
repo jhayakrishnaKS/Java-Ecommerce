@@ -19,16 +19,9 @@ public class CategoryController {
         this.homeController = homeController;
     }
 
-    public void displayCategories() {
-        println("1. Phone");
-        println("2. Accessories");
-
-    }
-
     public void chooseCategory() {
-
         try {
-            int categoryChoice= 0;
+            int categoryChoice = 0;
             categoryChoice = enterInt(StringUtils.ENTER_CHOICE);
             switch (categoryChoice) {
                 case 1:
@@ -45,6 +38,7 @@ public class CategoryController {
                     break;
                 default:
                     invalidChoice(new AppExecption("Invalid category choice."));
+
             }
         } catch (AppExecption appException) {
             invalidChoice(appException);
@@ -52,40 +46,56 @@ public class CategoryController {
 
     }
 
+    // Method to display products based on a specified category
     private void displayProductsByCategory(String category) {
+        // Print header for the category
         println("Products in " + category + ":");
 
-        List<String[]> products = readProductsFromFile();
+        // Read products from file and store in ArrayList
+        ArrayList<String[]> products = (ArrayList<String[]>) readProductsFromFile();
 
+        // Iterate through each product
         for (String[] product : products) {
+            // Check if the product has enough elements and belongs to the specified category
             if (product.length >= 5 && product[4].equalsIgnoreCase(category)) {
-                println( product[0]  +". "+ product[1] + " Price: $" + product[2] +" "+ product[3]);
+                // Print product information
+                println(product[0] + ". " + product[1] + " Price: $" + product[2] + " " + product[3]);
             }
         }
     }
 
+    // Method to read products from a file and return a list of string arrays
     private List<String[]> readProductsFromFile() {
-        List<String[]> products = new ArrayList<>();
+        // ArrayList to store products
+        ArrayList<String[]> products = new ArrayList<>();
 
+        // Try to read from the file
         try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/org/example/Assets/Product.csv"))) {
             String line;
+            // Read each line from the file
             while ((line = reader.readLine()) != null) {
+                // Split the line into an array using commas as delimiters
                 String[] productArray = line.split(",");
+                // Add the product array to the list
                 products.add(productArray);
             }
         } catch (IOException e) {
+            // Handle IO exception by printing the stack trace
             e.printStackTrace();
         }
 
+        // Return the list of products
         return products;
     }
 
+
     private void checkout() {
+
 
     }
 
     private void invalidChoice(AppExecption e) {
         println(e.getMessage());
+        chooseCategory();
     }
-
 }
