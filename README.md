@@ -1,7 +1,28 @@
 # Java-Ecommerce
+1.Login - Existing User and Admin
+2.Register - New User
+3.Home - User
+     *View Categories
+         *View products based on category.
+         *Add products to cart.
+     *View Products
+         *Add products to cart.
+     *View Cart
+         *Check out products from cart.
+     *View Order
+     *Logout
+4.Home - Admin
+     * View Categories
+         *Add Category
+         *Remove Category
+     * View Products
+         *Add Product
+         *Edit Product
+         *Delete Product
+         *View Orders
+      * Logout
 
-
-Challenges Faced while working on Java-Ecommerce:
+#Challenges Faced while working on Java-Ecommerce:
  
 1.Understanding Project Flow:
      Initially, grasping the overall flow of the project posed a significant challenge.
