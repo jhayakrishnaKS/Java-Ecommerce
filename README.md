@@ -29,6 +29,20 @@
 3. "Cart data" file for storing user cart details.
 
 
+# Steps involved in creating this project:
+
+1. Used MVC (Model, View, Controller) architecture for developing the console application.
+2. Added the required Models, Views and Controller along with Interface implementation to achieve abstraction.
+3. Added user-defined exceptions to catch anf handle the exceptions.
+4. Used encapsulation to hide data and used getter and setter for getting and setting the data for the models.
+5. Used "ArrayList" to store and manipulate data according to the user preferrences.
+6. Used "CSV" Files for handling data.
+7. Stored the file path, Scanner class other sensitive information in a separate Utility folder.
+8. Used Singleton pattern to avoid creating objects.
+9. Used "Date" class for handling date for orders.
+10. Handled exceptions for invalid choices.
+
+
 # Challenges Faced while working on Java-Ecommerce:
  
 1.Understanding Project Flow:
@@ -65,6 +79,6 @@ has context menu
 
 2.Orders page
 
-3.checkOut 
+3.check out Function
 
 4.Admin Side
