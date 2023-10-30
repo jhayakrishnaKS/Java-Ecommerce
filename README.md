@@ -4,7 +4,8 @@
 2.Register - New User
 
 3.Home - User:
-     *View Categories
+     
+*View Categories
          *View products based on category.
          *Add products to cart. 
      *View Products
