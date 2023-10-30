@@ -21,7 +21,12 @@
      
 11.Logout
 
-      
+# Files created:
+1. "User credential" file for storing user data.
+2. "Category data" file for storing categories.
+3. "Product data" file for storing Products.
+4. "Cart data" file for storing user cart details.
+5. "Order data" file for storing user order details
 
 # Challenges Faced while working on Java-Ecommerce:
  
