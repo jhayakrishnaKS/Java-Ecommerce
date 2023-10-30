@@ -3,16 +3,11 @@
 
 2.Register - New User
 
-3.Home - User
-
+3.Home - User:
      *View Categories
-     
          *View products based on category.
-	 
-         *Add products to cart.
-	 
+         *Add products to cart. 
      *View Products
-     
          *Add products to cart.
 	 
      *View Cart
