@@ -40,7 +40,7 @@
       * Logout
       
 
-#Challenges Faced while working on Java-Ecommerce:
+# Challenges Faced while working on Java-Ecommerce:
  
 1.Understanding Project Flow:
      Initially, grasping the overall flow of the project posed a significant challenge.
