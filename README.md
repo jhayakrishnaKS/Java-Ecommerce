@@ -2,43 +2,25 @@
 1.Login - Existing User and Admin
 
 2.Register - New User
-
-3.Home - User:
      
-*View Categories
+3.View Categories
         
-	 *View products based on category.
-         *Add products to cart. 
-     *View Products
-         *Add products to cart.
-	 
-     *View Cart
-     
-         *Check out products from cart.
-	 
-     *View Order
-     
-     *Logout
-     
-4.Home - Admin
+4.View products based on category.
 
-     * View Categories
+5.Add products to cart. 
+
+6.View Products
+
+7.Add products to cart.
+	 
+8.View Cart
      
-         *Add Category
+9.Check out products from cart.
 	 
-         *Remove Category
-	 
-     * View Products
+10.View Order
      
-         *Add Product
-	 
-         *Edit Product
-	 
-         *Delete Product
-	 
-         *View Orders
-	 
-      * Logout
+11.Logout
+
       
 
 # Challenges Faced while working on Java-Ecommerce:
