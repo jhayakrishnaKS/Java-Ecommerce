@@ -6,7 +6,8 @@
 3.Home - User:
      
 *View Categories
-         *View products based on category.
+        
+	 *View products based on category.
          *Add products to cart. 
      *View Products
          *Add products to cart.
