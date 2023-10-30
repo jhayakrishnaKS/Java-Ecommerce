@@ -1,11 +1,11 @@
 package org.example.utils;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 
 public class FileUtils {
     private static File credentailsFile;
     private static File productFile;
+    private static final String CART_FILE_PATH = "src/main/java/org/example/Assets/Cart.csv";
 
     public static File getCredentialsFile() {
         if (credentailsFile == null)
@@ -19,7 +19,7 @@ public class FileUtils {
         return productFile;
     }
 
-    public static String CartFile() {
-        return null;
+    public static File CartFile() {
+        return new File(CART_FILE_PATH);
     }
 }

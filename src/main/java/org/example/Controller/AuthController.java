@@ -48,6 +48,8 @@ public class AuthController implements IAuthController {
                 case 2:
                     register();
                     break;
+                case 3:
+                    System.exit(0);
                 default:
                     invalidChoice(new AppExecption(StringUtils.INVALID_CHOICE));
                     break;

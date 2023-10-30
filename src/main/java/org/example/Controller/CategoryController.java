@@ -1,13 +1,20 @@
 package org.example.Controller;
 
+import org.example.Model.Category;
+import org.example.Model.Product;
 import org.example.utils.AppExecption;
+import org.example.utils.FileUtils;
 import org.example.utils.StringUtils;
+import org.example.utils.Utils;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Scanner;
 
 import static org.example.utils.Appinput.enterInt;
 import static org.example.utils.Utils.println;
@@ -56,13 +63,14 @@ public class CategoryController {
 
         // Iterate through each product
         for (String[] product : products) {
-            // Check if the product has enough elements and belongs to the specified category
             if (product.length >= 5 && product[4].equalsIgnoreCase(category)) {
                 // Print product information
                 println(product[0] + ". " + product[1] + " Price: $" + product[2] + " " + product[3]);
             }
-        }
+        } selectProductAndAddToCart();
     }
+
+   
 
     // Method to read products from a file and return a list of string arrays
     private List<String[]> readProductsFromFile() {
@@ -87,10 +95,58 @@ public class CategoryController {
         // Return the list of products
         return products;
     }
+    private void selectProductAndAddToCart() {
+        try {
+            displayProductsByCategory();
+            Scanner inputScanner = new Scanner(System.in);
 
+            Utils.print("Enter the ID of the product to add to the cart: ");
+            int selectedProductId = inputScanner.nextInt();
+
+            if (selectedProductId == 0) {
+                homeController.printMenu();
+                return;
+            }
+
+            Scanner scanner = new Scanner(FileUtils.ProductFile());
+            while (scanner.hasNext()) {
+                String productString = scanner.next().trim();
+                if (!productString.startsWith("id")) {
+                    String[] productArray = productString.split(",");
+
+                    if (!productArray[0].matches("\\d+")) {
+                        System.err.println("Invalid product ID: " + productArray[0]);
+                        continue;
+                    }
+
+                    int productId = Integer.parseInt(productArray[0]);
+
+                    if (productId == selectedProductId) {
+                        Product selectedProduct = new Product(
+                                productId,
+                                productArray[1],
+                                "",
+                                Double.parseDouble(productArray[2]),
+                                Integer.parseInt(productArray[3]),
+                                new Category(productArray[4])
+                        );
+
+                        homeController.addToCart(selectedProduct);
+//                  Utils.println("Product added to the cart: " + selectedProduct.getTitle());
+
+                    }
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void displayProductsByCategory() {
+    }
 
     private void checkout() {
-
 
     }
 
@@ -98,4 +154,5 @@ public class CategoryController {
         println(e.getMessage());
         chooseCategory();
     }
+    
 }

@@ -5,6 +5,7 @@ import org.example.Controller.impl.IHomeController;
 import org.example.Model.Product;
 import org.example.utils.AppExecption;
 import org.example.utils.StringUtils;
+import org.example.view.CartPage;
 import org.example.view.HomePage;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
 import static org.example.utils.Appinput.enterInt;
 import static org.example.utils.UserUtils.setLoggedInUser;
 import static org.example.utils.Utils.println;
+import static org.example.view.CartPage.CartMenu;
 
 public class HomeController implements IHomeController {
     private List<Product> cart;
@@ -42,18 +44,20 @@ public class HomeController implements IHomeController {
             switch (choice) {
                 case 1:
                     displayCategories();
+                    productController.selectProductAndAddToCart();
+                    cartController.saveCartToCSV();
                     break;
                 case 2:
-                    productController. loadProduct() ;
-                    productController.selectProductAndAddToCart();
-
+                    productController.loadProduct();
+                    after();
                     break;
                 case 3:
-                     cartController.viewCart();
-                     cartController.saveCartToCSV();
+                    cartController.viewCart();
+                    CartMenu();
+
+
                     break;
                 case 4:
-                    // orderController.viewOrders();
                     break;
                 case 5:
                     setLoggedInUser(null);
@@ -68,7 +72,6 @@ public class HomeController implements IHomeController {
     }
 
 
-
     private void displayCategories() {
         println("1. Phone");
         println("2. Accessories");
@@ -76,6 +79,32 @@ public class HomeController implements IHomeController {
         println("99. Go Back");
         categoryController.chooseCategory();
     }
+    private void after(){
+        CartMenu();
+        int choice = 0;
+        try {
+            choice = enterInt(StringUtils.ENTER_CHOICE);
+            println("88. Checkout");
+            println("99. Go Back");
+            if (choice == 88) {
+                checkout();
+            } else if (choice == 99) {
+                printMenu();
+            } else {
+                invalidChoice(new AppExecption(StringUtils.INVALID_CHOICE));
+            }
+        } catch (AppExecption e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    private void checkout() {
+    }
+    private void CartMenu() {
+        CartPage.CartMenu();
+    }
+
 
     private void invalidChoice(AppExecption appException) {
         println(appException.getMessage());
@@ -86,7 +115,7 @@ public class HomeController implements IHomeController {
 
     }
 
-    public void addToCart( Product product) {
+    public void addToCart(Product product) {
         cart.add(product);
         System.out.println("Product added to the cart: " + product.getTitle());
     }
