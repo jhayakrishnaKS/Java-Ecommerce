@@ -59,3 +59,12 @@
      Efficiently handling file operations, especially reading and writing to CSV files, introduced complexities.
      Addressing issues related to file access and data integrity required carefull handling.
 has context menu
+
+# Yet To Work
+1.Cart details getting stored in Cart.CSV
+
+2.Orders page
+
+3.checkOut 
+
+4.Admin Side
